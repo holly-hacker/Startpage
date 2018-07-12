@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Start</title>
+    <link rel="stylesheet" href="css/main.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="js/main.js"></script>
+</head>
+<body>
+    <div class="background">
+        <div class="grid">
+            <div class="clock" id="clock">00:00:00</div>
+            <div class="links">
+                <ul>
+                    <li><a href="https://www.youtube.com/feed/subscriptions/">YouTube</a></li>
+                    <li><a href="https://www.github.com/">GitHub</a></li>
+                    <li></li>
+                    <li><a href="https://toledo.kuleuven.be/portal/#/home">Toledo</a></li>
+                </ul>
+            </div>
+            <div class="feeds" id="feeds"></div>
+            <!--
+            <div class="feeds" id="feeds">
+                <div class="feed">
+                    <div class="title">Feed title</div>
+                    <div class="content">
+                        <a href="">Link</a>
+                        <a href="">...</a>
+                    </div>
+                </div>
+            </div>
+            -->
+        </div>
+    </div>
+    <div class="modal-bg" id="settings-modal" style="display: none;">
+        <div class="modal">
+            RSS2JSON API Key:<br/>
+            <input type="text" name="apikey" id="apikey">
+            <br/>
+            Feeds:<br/>
+            <textarea name="feedData" id="feedData" cols="30" rows="10" placeholder=""></textarea>
+            <br/><br/>
+            <button id="saveSettings">Save Settings</button>
+        </div>
+    </div>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/d/d0/GearNotRotate.svg" alt="gear" class="gear" id="gear">
+</body>
+</html>

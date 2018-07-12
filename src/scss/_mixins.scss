@@ -1,0 +1,5 @@
+@mixin debugColor($color) {
+    @if ($debug) {
+        background: $color!important;
+    }
+}

@@ -1,0 +1,200 @@
+@import 'mixins';
+
+@import url('https://fonts.googleapis.com/css?family=Ubuntu|Nunito:200');
+
+$font-general: 'Ubuntu', sans-serif;
+$font-clock: 'Nunito', sans-serif;
+$font-links: 'Nunito', sans-serif;
+
+$size-left: 20rem;
+$padding: 1rem;
+$padding-clock: 1rem;
+$padding-links: 1rem;
+$padding-feeds-left: 1rem;
+$padding-feeds-between: 0.3rem;
+$fs-clock: 4rem;
+$fs-links: 1.25rem;
+$debug: false; // debug
+
+.background {
+    @include debugColor(black);
+
+    // background: url($wallpaper) no-repeat center center fixed;
+    // background-size: cover;
+    background-color: #334;
+    color: #ddd;
+    font-family: $font-general;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    overflow: auto;
+}
+
+.grid {
+    @include debugColor(lime);
+
+    margin: $padding 0;
+    height: calc(100% - #{$padding*2});
+
+    display: grid;
+    grid-template-columns: $size-left auto;
+    grid-template-rows: auto 1fr;
+    grid-template-areas:
+        "c f"
+        "l f";
+
+    .clock {
+        @include debugColor(#118888);
+        grid-area: c;
+    }
+    
+    .links {
+        @include debugColor(#882288);
+        grid-area: l;
+    }
+    
+    .feeds {
+        @include debugColor(#888833);
+        grid-area: f;
+    }
+}
+
+.gear {
+    z-index: 1;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 2rem;
+    padding: 0.5rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover {
+        width: 2.5rem;
+        padding: 0.25rem;
+        transition: all 0.2s ease;
+    }
+}
+
+.clock {
+    font-family: $font-clock;
+    font-size: $fs-clock;
+    line-height: $fs-clock;
+    padding: $padding-clock;
+    text-align: center;
+}
+
+.links {
+    text-align: right;
+    padding: $padding-links;
+    font-family: $font-links;
+
+    li {
+        list-style: none;
+        display: block;
+
+        padding-bottom: $fs-links*0.6;
+
+        line-height: $fs-links;
+        font-size: $fs-links;
+
+        height: $fs-links;
+
+        a {
+            color: #ddd;
+            text-decoration: none;
+
+            &:after {
+                content: ' <';
+            }
+        }
+    }
+}
+
+.feeds {
+    border-left: 1px solid white;
+
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    padding-left: $padding-feeds-left;
+
+    padding: 1em;
+
+    .feed {
+        @include debugColor(blue);
+
+        background: #223e;
+
+        margin: $padding-feeds-between;
+        padding: 0.5rem;
+
+        width: 24rem;
+        // min-width: 16rem;
+        // max-width: 36rem;
+
+        .title {
+            border-bottom: 1px solid white;
+            padding-bottom: 0.2rem;
+        }
+
+        .content {
+            padding-top: 0.5rem;
+            a {
+                font-size: 0.9rem;
+                line-height: 1rem;
+                display: block;
+                color: #ddd;
+
+                text-decoration: none;
+                
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+
+                &:hover {
+                    color: #fff;
+                }
+                &:visited {
+                    color: #888;
+                    &:hover {
+                        color: #bbb;
+                    }
+                }
+                &:before {
+                    content: '>';
+                }
+            }
+        }
+    }
+}
+
+.modal-bg {
+    font-family: $font-general;
+    background-color: #334d;
+    display: flex;
+    //z-index: 3;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    overflow: auto;
+    
+    .modal {
+        box-shadow: 2px 4px 5px #0005;
+
+        background: #223;
+        color: #dde;
+        min-width: 100px;
+        min-height: 100px;
+        margin: auto auto;
+
+        padding: 3rem;
+    }
+}
